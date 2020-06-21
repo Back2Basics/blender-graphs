@@ -26,8 +26,7 @@ def run(edges, iterations=1000, force_strength=5.0, dampening=0.01,
     d = 3 if is_3d else 2
     nodes = {n: {"velocity": [0.0] * d, "force": [0.0] * d} for n in nodes}
 
-    # Repeat n times (is there a more Pythonic way to do this?)
-    for _ in repeat(None, iterations):
+    for _ in range(iterations):
 
         # Add in Coulomb-esque node-node repulsive forces
         for node1, node2 in combinations(nodes.values(), 2):
